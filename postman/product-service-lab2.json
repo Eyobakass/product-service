@@ -1,0 +1,149 @@
+{
+  "info": {
+    "_postman_id": "c1a9b6c2-8d2e-4c9a-9f77-123456789abc",
+    "name": "product-service-lab2",
+    "description": "RESTful Product Catalogue API - Lab 2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET All Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "products"]
+        }
+      }
+    },
+    {
+      "name": "GET Product by ID (Valid)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/products/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "products", "1"]
+        }
+      }
+    },
+    {
+      "name": "GET Product by ID (Invalid)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/products/9999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "products", "9999"]
+        }
+      }
+    },
+    {
+      "name": "POST Create Product (Valid)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Webcam\",\n  \"price\": 99.99,\n  \"stockQty\": 20,\n  \"category\": \"Peripherals\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "products"]
+        }
+      }
+    },
+    {
+      "name": "POST Create Product (Invalid - Blank Name)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"\",\n  \"price\": 10.0,\n  \"stockQty\": 1,\n  \"category\": \"Tech\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "products"]
+        }
+      }
+    },
+    {
+      "name": "PUT Update Product",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Updated Laptop\",\n  \"price\": 1200.0,\n  \"stockQty\": 5,\n  \"category\": \"Electronics\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/products/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "products", "1"]
+        }
+      }
+    },
+    {
+      "name": "DELETE Product (Valid)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/products/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "products", "1"]
+        }
+      }
+    },
+    {
+      "name": "DELETE Product (Invalid)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/products/9999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "products", "9999"]
+        }
+      }
+    }
+  ]
+}
