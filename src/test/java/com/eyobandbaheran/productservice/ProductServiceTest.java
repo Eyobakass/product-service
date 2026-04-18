@@ -22,24 +22,25 @@ class ProductServiceTest {
     private ProductService productService;
 
     @Test
-    void findByIdReturnsProductWhenProductExists() {
-        Product laptop = new Product("Laptop", 1200.0);
-        laptop.setId(1L);
-        when(productRepository.findById(1L)).thenReturn(Optional.of(laptop));
+void findByIdReturnsProductWhenProductExists() {
+    Product laptop = new Product("Laptop", 1200.0, 10, "Electronics");
+    laptop.setId(1L);
 
-        Optional<Product> result = productService.findById(1L);
+    when(productRepository.findById(1L)).thenReturn(Optional.of(laptop));
 
-        assertThat(result).isPresent();
-        assertThat(result.get().getName()).isEqualTo("Laptop");
-        assertThat(result.get().getPrice()).isEqualTo(1200.0);
-    }
+    var result = productService.findById(1L);
 
-    @Test
-    void findByIdReturnsEmptyWhenProductNotFound() {
-        when(productRepository.findById(99L)).thenReturn(Optional.empty());
+    assertThat(result.getName()).isEqualTo("Laptop");
+    assertThat(result.getPrice()).isEqualTo(1200.0);
+}
 
-        Optional<Product> result = productService.findById(99L);
+@Test
+void findByIdThrowsExceptionWhenProductNotFound() {
+    when(productRepository.findById(99L)).thenReturn(Optional.empty());
 
-        assertThat(result).isEmpty();
-    }
+    org.junit.jupiter.api.Assertions.assertThrows(
+            RuntimeException.class,
+            () -> productService.findById(99L)
+    );
+}
 }

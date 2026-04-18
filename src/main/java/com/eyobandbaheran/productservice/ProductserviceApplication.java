@@ -18,9 +18,9 @@ public class ProductserviceApplication {
     @Bean
     CommandLineRunner seedData(ProductRepository repo) {
         return args -> {
-            repo.save(new Product("Laptop", 1200.00));
-            repo.save(new Product("Monitor", 350.00));
-            repo.save(new Product("Keyboard", 85.00));
+            repo.save(new Product("Laptop", 1200.0, 15, "Electronics"));
+            repo.save(new Product("Monitor", 350.0, 8, "Electronics"));
+            repo.save(new Product("Keyboard", 85.0, 30, "Peripherals"));
         };
     }
 }
