@@ -1,10 +1,24 @@
-# product-service
+# Product Service API
 
-![CI](https://github.com/Eyobakass/product-service/actions/workflows/ci.yml/badge.svg)
+## Overview
+This project is a Spring Boot REST API for managing products.  
+It follows clean architecture principles using DTOs, service layer logic, validation, and proper HTTP standards.
 
-A RESTful product microservice built with Spring Boot 3.
+---
 
-## Getting Started
+## Tech Stack
+- Java 21
+- Spring Boot 3.3.x
+- Spring Web
+- Spring Data JPA
+- H2 Database (in-memory)
+- Spring Validation
+- Springdoc OpenAPI (Swagger)
+
+---
+
+## How to Run
 
 ```bash
+mvn clean install
 mvn spring-boot:run
